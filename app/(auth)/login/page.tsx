@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
@@ -17,7 +17,7 @@ const STAFF_ROLES = [
   "DEVELOPER",
 ];
 
-export default function LoginPage() {
+function LoginForm() {
   const router = useRouter();
   const params = useSearchParams();
   const explicitCallback = params.get("callbackUrl");
@@ -119,7 +119,7 @@ export default function LoginPage() {
               type="button"
               variant="outline"
               className="w-full"
-              onClick={() => signIn("google", { callbackUrl })}
+              onClick={() => signIn("google", { callbackUrl: explicitCallback ?? "/dashboard" })}
             >
               Continue with Google
             </Button>
@@ -137,11 +137,20 @@ export default function LoginPage() {
           <p className="font-medium text-brown-deep">Demo accounts (password: <code>fellowship2025</code>):</p>
           <ul className="mt-2 space-y-1">
             <li>• <code>admin@fellowship.local</code></li>
+            <li>• <code>cpc@fellowship.local</code></li>
             <li>• <code>instructor@fellowship.local</code></li>
             <li>• <code>adaeze@fellowship.local</code> (student)</li>
           </ul>
         </div>
       </CardContent>
     </Card>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense fallback={<div className="text-center text-muted">Loading…</div>}>
+      <LoginForm />
+    </Suspense>
   );
 }
