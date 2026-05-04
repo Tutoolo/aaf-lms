@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────────
+   Brand palette — single source of truth
+   Used by Tailwind config and arbitrary CSS.
+   ───────────────────────────────────────────── */
+
+:root {
+  /* Brand — Navy + Gold palette
+     NOTE: variable names retain the "brown" prefix because they're semantic
+     role labels in the codebase (deep / mid / warm surface). Renaming would
+     touch dozens of components for no functional benefit. The values below
+     are navy. */
+  --gold: #d4a03b;
+  --gold-light: #f2c96e;
+  --gold-pale: #f8e9c3;
+  --brown-deep: #0e1b36; /* Navy — sidebars, hero, footer */
+  --brown-mid: #1b2d52;  /* Navy — hover states */
+  --brown-warm: #2f4575; /* Navy — borders on dark surfaces */
+  --terra: #c84a1f;
+  --terra-light: #e07850;
+  --cream: #f6f1e6;      /* Cooler cream — pairs better with navy */
+  --cream-mid: #e8dcc4;
+  --ink: #0a1226;        /* Very-dark navy text */
+  --text-muted: #5c6885; /* Cool muted */
+
+  /* Acts */
+  --act1: #1f4538; /* Foundation — forest green */
+  --act2: #1a6b85; /* Build — teal (shifted from midnight blue so it stays distinct from navy bg) */
+  --act3: #5a2818; /* Launch — deep terracotta */
+
+  /* shadcn semantic tokens (HSL triplets) */
+  --background: 40 47% 93%;          /* cream */
+  --foreground: 224 60% 9%;          /* ink (very-dark navy) */
+  --card: 0 0% 100%;
+  --card-foreground: 224 60% 9%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 224 60% 9%;
+  --primary: 40 64% 53%;             /* gold */
+  --primary-foreground: 224 60% 9%;
+  --secondary: 40 39% 84%;           /* cream-mid */
+  --secondary-foreground: 224 60% 9%;
+  --muted: 40 39% 84%;
+  --muted-foreground: 220 18% 44%;
+  --accent: 40 64% 53%;
+  --accent-foreground: 0 0% 100%;
+  --destructive: 14 73% 45%;         /* terra */
+  --destructive-foreground: 0 0% 100%;
+  --border: 40 25% 78%;
+  --input: 40 25% 78%;
+  --ring: 40 64% 53%;
+  --radius: 0.625rem;
+}
+
+.dark {
+  --background: 220 59% 13%;         /* navy deep */
+  --foreground: 40 47% 93%;
+  --card: 220 50% 21%;               /* navy mid */
+  --card-foreground: 40 47% 93%;
+  --popover: 220 50% 21%;
+  --popover-foreground: 40 47% 93%;
+  --primary: 40 85% 69%;             /* gold-light */
+  --primary-foreground: 220 59% 13%;
+  --secondary: 220 35% 27%;
+  --secondary-foreground: 40 47% 93%;
+  --muted: 220 35% 27%;
+  --muted-foreground: 40 25% 70%;
+  --accent: 40 85% 69%;
+  --accent-foreground: 220 59% 13%;
+  --destructive: 16 70% 60%;         /* terra-light */
+  --destructive-foreground: 220 59% 13%;
+  --border: 220 35% 30%;
+  --input: 220 35% 30%;
+  --ring: 40 85% 69%;
+}
+
+/* ─────────────────────────────────────────────
+   Base
+   ───────────────────────────────────────────── */
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html,
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: var(--font-dm-sans), ui-sans-serif, system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-playfair), serif;
+  letter-spacing: -0.01em;
+}
+
+/* ─────────────────────────────────────────────
+   Reusable utilities
+   ───────────────────────────────────────────── */
+
+@layer components {
+  /* Gold-accented divider */
+  .gold-divider {
+    @apply border-t border-gold/40;
+  }
+
+  /* Editorial section heading */
+  .eyebrow {
+    @apply font-sans text-xs uppercase tracking-[0.2em] text-gold;
+  }
+
+  /* Act pill */
+  .act-pill {
+    @apply inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-medium uppercase tracking-wider text-white;
+  }
+
+  /* Card variants */
+  .card-warm {
+    @apply rounded-xl border border-cream-mid bg-white p-6 shadow-sm transition-shadow hover:shadow-md;
+  }
+  .card-deep {
+    @apply rounded-xl border border-brown-warm/40 bg-brown-deep p-6 text-cream;
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--border));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

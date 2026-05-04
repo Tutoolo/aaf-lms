@@ -1,0 +1,23 @@
+version: "3.9"
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: fellowship-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: fellowship
+      POSTGRES_PASSWORD: fellowship
+      POSTGRES_DB: fellowship
+    ports:
+      - "5432:5432"
+    volumes:
+      - fellowship_pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U fellowship"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  fellowship_pg_data:
