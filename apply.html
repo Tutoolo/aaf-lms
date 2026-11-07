@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Apply — The Fellowship</title>
+<meta name="description" content="Apply to the Agentic AI Fellowship. Thirty seats. Ten weeks. Demo Day.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+
+<style>
+  :root {
+    --bg:            #0E0618;
+    --bg-purple:     #1A0F2E;
+    --bg-raised:     #1F1433;
+    --bg-card:       #241739;
+    --bg-elevated:   #2E1D48;
+    --bg-input:      #140A24;
+    --ink:           #F3EEFF;
+    --ink-soft:      #A99BC4;
+    --ink-faint:     #6B5E87;
+    --rule:          #3B2A5A;
+    --rule-soft:     #26193E;
+    --violet:        #A855F7;
+    --violet-light:  #C084FC;
+    --violet-glow:   #E9D5FF;
+    --magenta:       #E879F9;
+    --teal:          #22D3C6;
+    --teal-light:    #5EEAD4;
+    --sig-tint:      rgba(168, 85, 247, 0.14);
+    --teal-tint:     rgba(34, 211, 198, 0.14);
+
+    --sans:  "Inter", -apple-system, "Segoe UI", sans-serif;
+    --serif: "Instrument Serif", "Iowan Old Style", "Palatino", Georgia, serif;
+    --mono:  "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: var(--bg); color: var(--ink); }
+  body {
+    font-family: var(--sans);
+    font-size: 1rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    background:
+      radial-gradient(ellipse 60% 40% at 20% 0%, rgba(168, 85, 247, 0.14), transparent 60%),
+      var(--bg);
+    background-attachment: fixed;
+  }
+  a { color: var(--violet-light); text-underline-offset: 2px; }
+  a:hover { color: var(--violet-glow); }
+
+  /* Nav */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(14, 6, 24, 0.78);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--rule-soft);
+  }
+  .nav-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.125rem 1.5rem;
+  }
+  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 0.625rem; line-height: 1; }
+  .brand-name { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); }
+  .brand-sub { font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--violet-light); }
+  .nav-back { margin-left: auto; font-family: var(--sans); font-size: 0.9375rem; color: var(--ink-soft); text-decoration: none; }
+  .nav-back:hover { color: var(--ink); }
+
+  main {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding: clamp(3rem, 7vw, 5rem) 1.5rem 4rem;
+  }
+
+  /* Header */
+  .form-header {
+    margin-bottom: 3rem;
+  }
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 1rem;
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    background: var(--bg-raised);
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 2rem;
+  }
+  .pill::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--violet);
+    box-shadow: 0 0 10px var(--violet);
+  }
+  .pill strong { color: var(--ink); font-weight: 500; }
+
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(2.5rem, 6vw, 3.75rem);
+    line-height: 1.02;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  h1 em { font-style: italic; color: var(--violet-light); }
+  .intro {
+    color: var(--ink-soft);
+    font-size: 1.0625rem;
+    margin: 0 0 0.5rem;
+    max-width: 38rem;
+  }
+  .meta {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-top: 1.5rem;
+  }
+
+  /* Form */
+  form {
+    display: grid;
+    gap: 2rem;
+  }
+  .field {
+    display: grid;
+    gap: 0.5rem;
+  }
+  .field label {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    color: var(--ink);
+    display: flex;
+    gap: 0.4rem;
+    align-items: baseline;
+  }
+  .field label .req {
+    color: var(--violet-light);
+    font-weight: 400;
+    font-size: 0.8125rem;
+  }
+  .field .help {
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+    margin: 0;
+  }
+  .field input[type=text],
+  .field input[type=email],
+  .field input[type=url],
+  .field textarea {
+    font-family: var(--sans);
+    font-size: 0.9375rem;
+    color: var(--ink);
+    background: var(--bg-input);
+    border: 1px solid var(--rule);
+    padding: 0.75rem 1rem;
+    border-radius: 10px;
+    outline: none;
+    width: 100%;
+    line-height: 1.5;
+  }
+  .field textarea {
+    min-height: 7rem;
+    resize: vertical;
+    font-family: var(--sans);
+  }
+  .field input::placeholder,
+  .field textarea::placeholder { color: var(--ink-faint); }
+  .field input:focus,
+  .field textarea:focus { border-color: var(--violet); box-shadow: 0 0 0 3px var(--sig-tint); }
+
+  /* Checkbox group */
+  .checks {
+    display: grid;
+    gap: 0.625rem;
+    margin-top: 0.25rem;
+  }
+  .check {
+    display: grid;
+    grid-template-columns: 1.125rem 1fr;
+    gap: 0.75rem;
+    align-items: start;
+    padding: 0.875rem 1rem;
+    background: var(--bg-input);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+  .check:hover { border-color: var(--rule); background: var(--bg-raised); }
+  .check input[type=checkbox] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.125rem;
+    height: 1.125rem;
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    background: var(--bg-purple);
+    margin: 0;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+    margin-top: 0.15rem;
+  }
+  .check input[type=checkbox]:checked {
+    background: var(--violet);
+    border-color: var(--violet);
+  }
+  .check input[type=checkbox]:checked::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+  .check input[type=checkbox]:focus-visible {
+    outline: 2px solid var(--violet-light);
+    outline-offset: 2px;
+  }
+  .check:has(input:checked) {
+    border-color: var(--violet);
+    background: rgba(168, 85, 247, 0.07);
+  }
+  .check-text {
+    font-size: 0.9375rem;
+    color: var(--ink);
+    line-height: 1.4;
+  }
+
+  /* Counter */
+  .counter {
+    font-family: var(--mono);
+    font-size: 0.6875rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: right;
+    margin-top: 0.25rem;
+  }
+  .counter.over { color: var(--magenta); }
+
+  /* Submit row */
+  .submit-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--rule-soft);
+  }
+  .btn-primary {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.9375rem;
+    padding: 0.875rem 1.75rem;
+    background: var(--violet);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.15s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover {
+    background: var(--violet-light);
+    transform: translateY(-1px);
+    box-shadow: 0 10px 28px rgba(168, 85, 247, 0.4);
+  }
+  .submit-note {
+    font-size: 0.8125rem;
+    color: var(--ink-faint);
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--violet-light);
+    outline-offset: 2px;
+  }
+
+  footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    border-top: 1px solid var(--rule-soft);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 1rem;
+    color: var(--ink-faint);
+    font-size: 0.875rem;
+  }
+  footer .colophon { font-family: var(--serif); font-size: 1.125rem; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      <span class="brand-name">The Fellowship</span>
+      <span class="brand-sub">Platform</span>
+    </a>
+    <a href="/" class="nav-back">← Back to the site</a>
+  </div>
+</nav>
+
+<main>
+  <div class="form-header">
+    <div class="pill"><strong>Founding Cohort</strong> · 12 of 30 seats filled</div>
+    <h1>Apply to <em>the Fellowship.</em></h1>
+    <p class="intro">Ten weeks. Three acts. One production agent on the Demo Day stage. We read every application personally; review takes about 48 hours.</p>
+    <div class="meta">⏱ ~8 minutes to complete</div>
+  </div>
+
+  <form action="https://formsubmit.co/aiagentfellowship@ariroinc.com" method="POST" id="applyForm">
+    <input type="hidden" name="_subject" value="AAFLMS Fellowship Application">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://tutoolo.github.io/aaf-lms/thanks.html">
+    <input type="hidden" name="_autoresponse" value="Thanks for applying to The Fellowship. Your application is in our queue — review takes about 48 hours and you'll hear from us at this address. While you wait, open Module 01 (free preview) on the site. — Taiwo">
+
+    <div class="field">
+      <label for="name">Full name <span class="req">(required)</span></label>
+      <input type="text" id="name" name="Full Name" required placeholder="Ada Lovelace">
+    </div>
+
+    <div class="field">
+      <label for="email">Email <span class="req">(required)</span></label>
+      <input type="email" id="email" name="Email" required placeholder="you@company.com">
+    </div>
+
+    <div class="field">
+      <label for="profile">LinkedIn or GitHub URL <span class="req">(required)</span></label>
+      <p class="help">The public one — whichever shows your work best.</p>
+      <input type="url" id="profile" name="LinkedIn or GitHub" required placeholder="https://linkedin.com/in/… or https://github.com/…">
+    </div>
+
+    <div class="field">
+      <label for="location">Location / country <span class="req">(required)</span></label>
+      <input type="text" id="location" name="Location" required placeholder="Lagos, Nigeria · Houston, TX · London, UK">
+    </div>
+
+    <div class="field">
+      <label for="role">Current role &amp; company <span class="req">(required)</span></label>
+      <input type="text" id="role" name="Role &amp; Company" required placeholder="Senior Engineer at Acme · Founder at Ada Labs · Student at MIT">
+    </div>
+
+    <div class="field">
+      <label>Technical experience <span class="req">(tick any that apply)</span></label>
+      <p class="help">For routing, not scoring — we build for learners and shippers alike.</p>
+      <div class="checks">
+        <label class="check">
+          <input type="checkbox" name="Experience: Shipped Code" value="Yes">
+          <span class="check-text">I've shipped code to production</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="Experience: Built with LLMs" value="Yes">
+          <span class="check-text">I've built something with LLMs or AI APIs</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="Experience: Python or TS" value="Yes">
+          <span class="check-text">I'm comfortable with Python or TypeScript</span>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="Experience: Learning to Code" value="Yes">
+          <span class="check-text">I'm learning to code — this is my next step</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
+      <label for="agent">What agent would you build in 10 weeks? <span class="req">(required)</span></label>
+      <p class="help">What problem it solves, for whom. 150 words is plenty.</p>
+      <textarea id="agent" name="What agent would you build" required maxlength="1200" placeholder="A scheduling agent for solo therapists that handles intake forms, insurance verification, and follow-up reminders…"></textarea>
+      <div class="counter" id="agentCount">0 / 150 words</div>
+    </div>
+
+    <div class="field">
+      <label for="why">Why this fellowship, why now? <span class="req">(required)</span></label>
+      <p class="help">What you want out of the ten weeks. 150 words.</p>
+      <textarea id="why" name="Why this fellowship" required maxlength="1200" placeholder="I've built prototypes but never shipped one. I want the accountability of a cohort and the forcing function of Demo Day…"></textarea>
+      <div class="counter" id="whyCount">0 / 150 words</div>
+    </div>
+
+    <div class="field">
+      <label for="referral">How did you hear about us?</label>
+      <p class="help">Optional — helps us know what's working.</p>
+      <input type="text" id="referral" name="Referral" placeholder="LinkedIn post · a friend · search · …">
+    </div>
+
+    <div class="submit-row">
+      <button type="submit" class="btn-primary">Submit application <span>→</span></button>
+      <span class="submit-note">You'll land on a confirmation page and get an auto-reply.</span>
+    </div>
+  </form>
+</main>
+
+<footer>
+  <span class="colophon">The Fellowship <span style="color: var(--violet-light); font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.22em; text-transform: uppercase; margin-left: 0.5rem;">AAFLMS</span></span>
+  <span>© 2026 · All rights reserved</span>
+</footer>
+
+<script>
+  // Word counters for the two short-answer fields
+  function wordCount(s) {
+    return s.trim() ? s.trim().split(/\s+/).length : 0;
+  }
+  function wireCounter(textareaId, counterId, limit) {
+    var ta = document.getElementById(textareaId);
+    var cnt = document.getElementById(counterId);
+    if (!ta || !cnt) return;
+    function update() {
+      var words = wordCount(ta.value);
+      cnt.textContent = words + ' / ' + limit + ' words';
+      if (words > limit) cnt.classList.add('over');
+      else cnt.classList.remove('over');
+    }
+    ta.addEventListener('input', update);
+    update();
+  }
+  wireCounter('agent', 'agentCount', 150);
+  wireCounter('why',   'whyCount',   150);
+</script>
+
+</body>
+</html>
