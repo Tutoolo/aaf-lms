@@ -234,9 +234,25 @@
     font-size: 0.75rem;
     font-weight: 700;
   }
-  .check input[type=checkbox]:focus-visible {
+  .check input[type=checkbox]:focus-visible,
+  .check input[type=radio]:focus-visible {
     outline: 2px solid var(--violet-light);
     outline-offset: 2px;
+  }
+  .check input[type=radio]:checked {
+    background: var(--violet);
+    border-color: var(--violet);
+  }
+  .check input[type=radio]:checked::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.5rem;
+    height: 0.5rem;
+    background: #fff;
+    border-radius: 50%;
   }
   .check:has(input:checked) {
     border-color: var(--violet);
@@ -348,6 +364,25 @@
     <input type="hidden" name="_autoresponse" value="Thanks for applying to The Fellowship. Your application is in our queue — review takes about 48 hours and you'll hear from us at this address. While you wait, open Module 01 (free preview) on the site. — Taiwo">
 
     <div class="field">
+      <label>Which track? <span class="req">(required)</span></label>
+      <p class="help">Build if you'll be the one shipping the code. Strategy if you'll be the one selling, pricing, or commercializing it.</p>
+      <div class="checks" style="grid-template-columns: 1fr; gap: 0.625rem;">
+        <label class="check">
+          <input type="radio" name="Track" value="Build Track" required style="appearance:none;-webkit-appearance:none;width:1.125rem;height:1.125rem;border:1px solid var(--rule);border-radius:50%;background:var(--bg-purple);margin:0;cursor:pointer;position:relative;transition:all 0.15s;margin-top:0.15rem;">
+          <span class="check-text"><strong style="color:var(--violet-light);">Build Track</strong> — engineers, PMs with CS backgrounds, technical founders. You leave with a production agent.</span>
+        </label>
+        <label class="check">
+          <input type="radio" name="Track" value="Strategy Track" required style="appearance:none;-webkit-appearance:none;width:1.125rem;height:1.125rem;border:1px solid var(--rule);border-radius:50%;background:var(--bg-purple);margin:0;cursor:pointer;position:relative;transition:all 0.15s;margin-top:0.15rem;">
+          <span class="check-text"><strong style="color:var(--teal-light);">Strategy Track</strong> — sellers, operators, revenue leaders, non-technical founders. You leave with a commercialization plan.</span>
+        </label>
+        <label class="check">
+          <input type="radio" name="Track" value="Not sure yet" required style="appearance:none;-webkit-appearance:none;width:1.125rem;height:1.125rem;border:1px solid var(--rule);border-radius:50%;background:var(--bg-purple);margin:0;cursor:pointer;position:relative;transition:all 0.15s;margin-top:0.15rem;">
+          <span class="check-text"><strong style="color:var(--ink);">Not sure yet</strong> — tell us in your short answers below and we'll help you pick.</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="field">
       <label for="name">Full name <span class="req">(required)</span></label>
       <input type="text" id="name" name="Full Name" required placeholder="Ada Lovelace">
     </div>
@@ -397,9 +432,9 @@
     </div>
 
     <div class="field">
-      <label for="agent">What agent would you build in 10 weeks? <span class="req">(required)</span></label>
-      <p class="help">What problem it solves, for whom. 150 words is plenty.</p>
-      <textarea id="agent" name="What agent would you build" required maxlength="1200" placeholder="A scheduling agent for solo therapists that handles intake forms, insurance verification, and follow-up reminders…"></textarea>
+      <label for="agent">What agent would you ship, sell, or commercialize in 10 weeks? <span class="req">(required)</span></label>
+      <p class="help">What problem it solves, for whom. Build Track applicants: what you'd ship. Strategy Track: what you'd take to market. 150 words is plenty.</p>
+      <textarea id="agent" name="What agent would you ship or sell" required maxlength="1200" placeholder="A scheduling agent for solo therapists that handles intake forms, insurance verification, and follow-up reminders…"></textarea>
       <div class="counter" id="agentCount">0 / 150 words</div>
     </div>
 

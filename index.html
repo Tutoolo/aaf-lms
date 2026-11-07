@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>The Fellowship — AAFLMS</title>
-<meta name="description" content="Ten weeks. Three acts. One production agent on the Demo Day stage. Built for African and diaspora engineers ready to ship.">
+<meta name="description" content="Ten weeks. Two tracks. One Demo Day. Build the AI agents — or sell them.">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
 
 <style>
@@ -34,7 +34,7 @@
     --serif: "Instrument Serif", "Iowan Old Style", "Palatino", Georgia, serif;
     --mono:  "JetBrains Mono", ui-monospace, "SFMono-Regular", monospace;
 
-    --fs-hero:   clamp(2.75rem, 8.5vw, 5.75rem);
+    --fs-hero:   clamp(2.5rem, 7.5vw, 5.25rem);
     --fs-dek:    clamp(1.0625rem, 1.5vw, 1.1875rem);
     --fs-h2:     clamp(2rem, 5vw, 3.5rem);
     --fs-body:   1.0625rem;
@@ -54,7 +54,6 @@
   }
   a { color: var(--violet-light); text-underline-offset: 2px; }
   a:hover { color: var(--violet-glow); }
-  img { max-width: 100%; }
 
   /* Navigation */
   .nav {
@@ -74,48 +73,18 @@
     gap: 2rem;
     padding: 1.125rem 1.5rem;
   }
-  .brand {
-    text-decoration: none;
-    display: flex;
-    align-items: baseline;
-    gap: 0.625rem;
-    line-height: 1;
-  }
-  .brand-name {
-    font-family: var(--serif);
-    font-size: 1.5rem;
-    color: var(--ink);
-    letter-spacing: 0.005em;
-  }
-  .brand-sub {
-    font-family: var(--mono);
-    font-size: var(--fs-micro);
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--violet-light);
-  }
-  .nav-links {
-    margin-left: auto;
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-    font-size: 0.9375rem;
-  }
-  .nav-links a {
-    color: var(--ink-soft);
-    text-decoration: none;
-    transition: color 0.15s;
-  }
+  .brand { text-decoration: none; display: flex; align-items: baseline; gap: 0.625rem; line-height: 1; }
+  .brand-name { font-family: var(--serif); font-size: 1.5rem; color: var(--ink); }
+  .brand-sub { font-family: var(--mono); font-size: var(--fs-micro); letter-spacing: 0.22em; text-transform: uppercase; color: var(--violet-light); }
+  .nav-links { margin-left: auto; display: flex; gap: 2rem; align-items: center; font-size: 0.9375rem; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.15s; }
   .nav-links a:hover { color: var(--ink); }
   .nav-apply {
-    background: var(--violet);
-    color: #fff !important;
+    background: var(--violet); color: #fff !important;
     padding: 0.625rem 1.25rem;
     border-radius: 999px;
     font-weight: 500;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.4rem;
+    display: inline-flex; align-items: center; gap: 0.4rem;
     transition: all 0.15s;
   }
   .nav-apply:hover { background: var(--violet-light); transform: translateY(-1px); }
@@ -133,26 +102,23 @@
   /* Hero */
   .hero {
     position: relative;
-    padding: clamp(4rem, 10vw, 7rem) 0 clamp(3rem, 7vw, 5.5rem);
+    padding: clamp(4rem, 10vw, 7rem) 2.5rem clamp(3rem, 7vw, 5.5rem);
     background:
       radial-gradient(ellipse 70% 60% at 30% 40%, rgba(168, 85, 247, 0.22), transparent 60%),
       radial-gradient(ellipse 55% 40% at 70% 20%, rgba(232, 121, 249, 0.12), transparent 60%),
       var(--bg-purple);
     border-radius: 24px;
     margin: 0 -0.5rem;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
     overflow: hidden;
   }
   .hero::after {
     content: "";
     position: absolute;
     inset: 0;
-    background-image:
-      repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 48px);
+    background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0.025) 0 1px, transparent 1px 48px);
     pointer-events: none;
   }
-  .hero-inner { max-width: 48rem; position: relative; z-index: 1; }
+  .hero-inner { max-width: 50rem; position: relative; z-index: 1; }
 
   .cohort-pill {
     display: inline-flex;
@@ -171,8 +137,7 @@
   }
   .cohort-pill::before {
     content: "";
-    width: 7px;
-    height: 7px;
+    width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--violet);
     box-shadow: 0 0 10px var(--violet);
@@ -190,18 +155,21 @@
   }
   .hero h1 .grad {
     background: linear-gradient(95deg, var(--violet-light) 10%, var(--magenta) 70%);
-    -webkit-background-clip: text;
-    background-clip: text;
+    -webkit-background-clip: text; background-clip: text;
     -webkit-text-fill-color: transparent;
     font-style: italic;
-    border-bottom: 2px solid var(--violet);
-    padding-bottom: 0.15em;
+  }
+  .hero h1 .teal-grad {
+    background: linear-gradient(95deg, var(--teal-light) 10%, var(--teal) 90%);
+    -webkit-background-clip: text; background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-style: italic;
   }
   .hero .dek {
     font-size: var(--fs-dek);
     line-height: 1.55;
     color: var(--ink-soft);
-    max-width: 36rem;
+    max-width: 38rem;
     margin: 0 0 2.5rem;
   }
 
@@ -223,13 +191,10 @@
     border-radius: 999px;
     transition: all 0.15s;
     text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
+    display: inline-flex; align-items: center; gap: 0.5rem;
   }
   .btn-primary:hover {
     background: var(--violet-light);
-    color: #fff;
     transform: translateY(-1px);
     box-shadow: 0 10px 28px rgba(168, 85, 247, 0.4);
   }
@@ -259,9 +224,7 @@
     border-bottom: 1px solid var(--rule-soft);
     margin-bottom: 1rem;
   }
-  @media (max-width: 640px) {
-    .stats { grid-template-columns: repeat(2, 1fr); }
-  }
+  @media (max-width: 640px) { .stats { grid-template-columns: repeat(2, 1fr); } }
   .stat .stat-num {
     font-family: var(--serif);
     font-size: clamp(2.25rem, 5vw, 3.5rem);
@@ -279,15 +242,10 @@
     color: var(--ink-faint);
   }
 
-  /* Act section */
-  .act {
-    padding-block: clamp(4rem, 8vw, 6rem);
-    position: relative;
-  }
-  .act-marker {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
+  /* Two tracks section */
+  .tracks-intro { padding: 5rem 0 2rem; position: relative; }
+  .tracks-marker {
+    display: flex; align-items: center; gap: 1rem;
     margin-bottom: 1.75rem;
     font-family: var(--mono);
     font-size: var(--fs-micro);
@@ -295,14 +253,8 @@
     text-transform: uppercase;
     color: var(--teal);
   }
-  .act-marker::before {
-    content: "";
-    width: 48px;
-    height: 2px;
-    background: var(--teal);
-    border-radius: 2px;
-  }
-  .act h2 {
+  .tracks-marker::before { content: ""; width: 48px; height: 2px; background: var(--teal); border-radius: 2px; }
+  .tracks-intro h2 {
     font-family: var(--serif);
     font-weight: 400;
     font-size: var(--fs-h2);
@@ -312,22 +264,232 @@
     text-wrap: balance;
     max-width: 24ch;
   }
-  .act h2 em { font-style: italic; color: var(--violet-light); }
-  .act-dek {
+  .tracks-intro .dek {
     color: var(--ink-soft);
     font-size: 1.0625rem;
-    line-height: 1.6;
+    max-width: 44rem;
+    margin: 0 0 3rem;
+  }
+  .tracks-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+  @media (max-width: 760px) { .tracks-grid { grid-template-columns: 1fr; } }
+  .track-card {
+    background: linear-gradient(180deg, var(--bg-raised), var(--bg-purple));
+    border: 1px solid var(--rule);
+    border-radius: 18px;
+    padding: 2rem 1.75rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .track-card.build::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 0% 0%, rgba(168, 85, 247, 0.15), transparent 55%);
+    pointer-events: none;
+  }
+  .track-card.strategy::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 100% 0%, rgba(34, 211, 198, 0.12), transparent 55%);
+    pointer-events: none;
+  }
+  .track-card-inner { position: relative; z-index: 1; }
+  .track-head {
+    display: flex; align-items: baseline; justify-content: space-between;
+    margin-bottom: 1.25rem; gap: 1rem;
+  }
+  .track-label {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .track-card.build .track-label { color: var(--violet-light); }
+  .track-card.strategy .track-label { color: var(--teal-light); }
+  .seats {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .track-card h3 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: 1.875rem;
+    line-height: 1.1;
+    margin: 0 0 0.75rem;
+    color: var(--ink);
+    letter-spacing: -0.01em;
+  }
+  .track-card h3 em { font-style: italic; }
+  .track-card.build h3 em { color: var(--violet-light); }
+  .track-card.strategy h3 em { color: var(--teal-light); }
+  .track-card .track-dek {
+    color: var(--ink-soft);
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    margin: 0 0 1.5rem;
+  }
+  .track-meta {
+    display: grid;
+    gap: 0.625rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(14, 6, 24, 0.5);
+    border: 1px solid var(--rule-soft);
+    border-radius: 10px;
+  }
+  .track-meta-row {
+    display: grid;
+    grid-template-columns: 7rem 1fr;
+    gap: 0.75rem;
+    align-items: baseline;
+    font-size: 0.875rem;
+  }
+  .track-meta-label {
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+  .track-meta-value { color: var(--ink); }
+  .track-see {
+    font-family: var(--sans);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .track-card.build .track-see { color: var(--violet-light); }
+  .track-card.strategy .track-see { color: var(--teal-light); }
+  .track-see:hover { text-decoration: underline; }
+
+  /* Curriculum section with toggle */
+  .curriculum-section {
+    padding: 5rem 0 3rem;
+    position: relative;
+  }
+  .curriculum-marker {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.75rem;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
+  }
+  .curriculum-marker::before { content: ""; width: 48px; height: 2px; background: var(--teal); border-radius: 2px; }
+  .curriculum-section h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: var(--fs-h2);
+    line-height: 1.05;
+    letter-spacing: -0.015em;
+    margin: 0 0 1.25rem;
+  }
+  .curriculum-section .dek {
+    color: var(--ink-soft);
+    font-size: 1.0625rem;
     max-width: 44rem;
     margin: 0 0 2.5rem;
   }
+
+  /* Toggle */
+  .toggle {
+    display: inline-flex;
+    padding: 0.25rem;
+    background: var(--bg-raised);
+    border: 1px solid var(--rule);
+    border-radius: 999px;
+    margin-bottom: 2.5rem;
+  }
+  .toggle button {
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 0.875rem;
+    padding: 0.625rem 1.25rem;
+    background: transparent;
+    color: var(--ink-soft);
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    transition: all 0.15s;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .toggle button:hover { color: var(--ink); }
+  .toggle button.active.build-btn {
+    background: var(--violet);
+    color: #fff;
+  }
+  .toggle button.active.strategy-btn {
+    background: var(--teal);
+    color: var(--bg);
+  }
+  .toggle button .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: 0.6;
+  }
+  .toggle button.active .dot { opacity: 1; }
+
+  /* Hide inactive track */
+  .track-content { display: none; }
+  .track-content.active { display: block; }
+
+  /* Act */
+  .act {
+    padding-block: clamp(3rem, 6vw, 4.5rem);
+    position: relative;
+  }
+  .act-marker {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .track-build .act-marker { color: var(--violet-light); }
+  .track-strategy .act-marker { color: var(--teal); }
+  .act-marker::before {
+    content: ""; width: 48px; height: 2px; border-radius: 2px;
+  }
+  .track-build .act-marker::before { background: var(--violet-light); }
+  .track-strategy .act-marker::before { background: var(--teal); }
+
+  .act h3.act-title {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1.05;
+    margin: 0 0 1rem;
+    letter-spacing: -0.015em;
+  }
+  .act-dek {
+    color: var(--ink-soft);
+    font-size: 1rem;
+    max-width: 44rem;
+    margin: 0 0 2rem;
+  }
   .act-big-num {
     position: absolute;
-    top: 50%;
-    right: 2rem;
+    top: 50%; right: 2rem;
     transform: translateY(-50%);
     font-family: var(--serif);
     font-style: italic;
-    font-size: clamp(9rem, 16vw, 15rem);
+    font-size: clamp(9rem, 15vw, 14rem);
     line-height: 1;
     color: var(--ink);
     opacity: 0.04;
@@ -337,12 +499,7 @@
   }
 
   /* Week cards */
-  .weeks {
-    display: grid;
-    gap: 1.25rem;
-    position: relative;
-    z-index: 1;
-  }
+  .weeks { display: grid; gap: 1.25rem; position: relative; z-index: 1; }
   .week-card {
     background: linear-gradient(180deg, var(--bg-raised), var(--bg-purple));
     border: 1px solid var(--rule);
@@ -350,18 +507,20 @@
     overflow: hidden;
   }
   .week-header {
-    background: linear-gradient(90deg, var(--teal-tint), transparent 85%);
     border-bottom: 1px solid var(--rule-soft);
     padding: 1rem 1.5rem;
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-end;
-    gap: 0.75rem;
+    display: flex; align-items: baseline; justify-content: flex-end; gap: 0.75rem;
     font-family: var(--mono);
     font-size: var(--fs-micro);
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--ink-soft);
+  }
+  .track-build .week-header {
+    background: linear-gradient(90deg, var(--sig-tint), transparent 85%);
+  }
+  .track-strategy .week-header {
+    background: linear-gradient(90deg, var(--teal-tint), transparent 85%);
   }
   .week-header .num {
     font-family: var(--serif);
@@ -380,30 +539,19 @@
     margin: 0 0 0.375rem;
     letter-spacing: -0.01em;
   }
-  .week-sub {
-    color: var(--ink-soft);
-    margin: 0 0 1.5rem;
-    font-size: 1rem;
-  }
+  .week-sub { color: var(--ink-soft); margin: 0 0 1.5rem; font-size: 1rem; }
   .outcomes-label {
     font-family: var(--mono);
     font-size: var(--fs-micro);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--violet-light);
     margin-bottom: 0.875rem;
   }
-  .outcomes {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1.75rem;
-    display: grid;
-    gap: 0.5rem;
-  }
+  .track-build .outcomes-label { color: var(--violet-light); }
+  .track-strategy .outcomes-label { color: var(--teal-light); }
+  .outcomes { list-style: none; padding: 0; margin: 0 0 1.75rem; display: grid; gap: 0.5rem; }
   .outcomes li {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.75rem;
+    display: grid; grid-template-columns: auto 1fr; gap: 0.75rem;
     align-items: baseline;
     color: var(--ink-soft);
     font-size: 0.9375rem;
@@ -411,41 +559,33 @@
   }
   .outcomes li::before {
     content: "✓";
-    color: var(--violet-light);
     font-weight: 600;
     font-size: 0.875rem;
   }
+  .track-build .outcomes li::before { color: var(--violet-light); }
+  .track-strategy .outcomes li::before { color: var(--teal-light); }
 
   .deliverable {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
+    display: flex; align-items: flex-start; gap: 0.75rem;
     padding: 0.875rem 1.125rem;
     border: 1px solid var(--rule);
-    border-left: 3px solid var(--violet);
     border-radius: 8px;
     background: var(--bg-purple);
     margin-bottom: 1rem;
   }
-  .deliverable-icon {
-    color: var(--violet-light);
-    font-size: 0.875rem;
-    margin-top: 0.1rem;
-  }
+  .track-build .deliverable { border-left: 3px solid var(--violet); }
+  .track-strategy .deliverable { border-left: 3px solid var(--teal); }
   .deliverable-label {
     font-family: var(--mono);
     font-size: var(--fs-micro);
     letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--violet-light);
     margin-right: 0.75rem;
     white-space: nowrap;
   }
-  .deliverable-text {
-    color: var(--ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
+  .track-build .deliverable-label { color: var(--violet-light); }
+  .track-strategy .deliverable-label { color: var(--teal-light); }
+  .deliverable-text { color: var(--ink-soft); font-size: 0.9375rem; line-height: 1.5; }
 
   .launch-block {
     padding: 1rem 1.125rem;
@@ -454,9 +594,7 @@
     background: rgba(168, 85, 247, 0.06);
   }
   .launch-block-head {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
+    display: flex; align-items: center; gap: 0.75rem;
     margin-bottom: 0.5rem;
     font-family: var(--mono);
     font-size: var(--fs-micro);
@@ -471,51 +609,23 @@
     border-radius: 4px;
     font-size: 0.625rem;
   }
-  .launch-block-text {
-    color: var(--ink-soft);
-    font-size: 0.9375rem;
-    line-height: 1.5;
-  }
+  .launch-block-text { color: var(--ink-soft); font-size: 0.9375rem; line-height: 1.5; }
   .launch-block-text strong { color: var(--ink); font-weight: 500; }
 
-  /* Try module preview */
-  .try-card {
-    background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
-    border: 1px solid var(--rule);
-    border-radius: 18px;
-    padding: 2.5rem 2rem;
-    position: relative;
-    overflow: hidden;
-  }
-  .try-card::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(circle at 100% 0%, rgba(232, 121, 249, 0.18), transparent 50%);
-    pointer-events: none;
-  }
-  .try-card-inner { position: relative; z-index: 1; max-width: 42rem; }
-  .try-card .label {
+  /* Shared Week 01 banner */
+  .shared-banner {
+    display: flex; align-items: center; gap: 0.75rem;
+    padding: 0.625rem 1rem;
+    background: rgba(34, 211, 198, 0.08);
+    border: 1px solid rgba(34, 211, 198, 0.25);
+    border-radius: 999px;
     font-family: var(--mono);
     font-size: var(--fs-micro);
-    letter-spacing: 0.18em;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
-    color: var(--violet-light);
+    color: var(--teal-light);
     margin-bottom: 1rem;
-  }
-  .try-card h3 {
-    margin: 0 0 0.75rem;
-    font-family: var(--serif);
-    font-weight: 400;
-    font-size: 2rem;
-    letter-spacing: -0.01em;
-    color: var(--ink);
-    line-height: 1.1;
-  }
-  .try-card p {
-    margin: 0 0 1.75rem;
-    color: var(--ink-soft);
-    font-size: 1rem;
+    width: fit-content;
   }
 
   /* Enroll section */
@@ -555,7 +665,7 @@
     line-height: 1.05;
     letter-spacing: -0.015em;
     margin: 0 auto 1.5rem;
-    max-width: 18ch;
+    max-width: 20ch;
     text-wrap: balance;
     position: relative;
   }
@@ -563,35 +673,17 @@
     color: var(--ink-soft);
     font-size: 1.0625rem;
     line-height: 1.5;
-    max-width: 36rem;
+    max-width: 38rem;
     margin: 0 auto 2.5rem;
     position: relative;
   }
-  .enroll .form-wrap {
-    display: flex;
-    gap: 0.5rem;
-    max-width: 32rem;
-    margin: 0 auto;
+  .enroll-cta-row {
+    display: flex; justify-content: center; gap: 0.75rem;
     flex-wrap: wrap;
-    justify-content: center;
     position: relative;
   }
-  .enroll input {
-    font-family: var(--sans);
-    font-size: 0.9375rem;
-    color: var(--ink);
-    background: rgba(14, 6, 24, 0.6);
-    border: 1px solid var(--rule);
-    padding: 0.875rem 1.25rem;
-    flex: 1;
-    min-width: 14rem;
-    border-radius: 999px;
-    outline: none;
-  }
-  .enroll input::placeholder { color: var(--ink-faint); }
-  .enroll input:focus { border-color: var(--violet); box-shadow: 0 0 0 3px var(--sig-tint); }
   .enroll-note {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
     font-size: var(--fs-micro);
     font-family: var(--mono);
     letter-spacing: 0.1em;
@@ -599,13 +691,19 @@
     text-transform: uppercase;
     position: relative;
   }
-  .enroll-note.sent { color: var(--teal-light); }
 
   /* About */
-  .about {
-    padding-block: clamp(3rem, 6vw, 5rem);
-    max-width: 44rem;
+  .about { padding-block: clamp(3rem, 6vw, 5rem); max-width: 44rem; }
+  .about-marker {
+    display: flex; align-items: center; gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-family: var(--mono);
+    font-size: var(--fs-micro);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--teal);
   }
+  .about-marker::before { content: ""; width: 48px; height: 2px; background: var(--teal); border-radius: 2px; }
   .about h2 {
     font-family: var(--serif);
     font-weight: 400;
@@ -614,6 +712,7 @@
     margin: 0 0 1.5rem;
     letter-spacing: -0.01em;
   }
+  .about h2 em { font-style: italic; color: var(--violet-light); }
   .about p { color: var(--ink-soft); margin: 0 0 1rem; }
 
   /* Footer */
@@ -622,23 +721,14 @@
     margin: 0 auto;
     padding: 3rem 1.5rem 2rem;
     border-top: 1px solid var(--rule-soft);
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    flex-wrap: wrap;
-    gap: 1rem;
+    display: flex; justify-content: space-between; align-items: baseline;
+    flex-wrap: wrap; gap: 1rem;
     color: var(--ink-faint);
     font-size: 0.875rem;
   }
-  footer .colophon {
-    font-family: var(--serif);
-    font-size: 1.125rem;
-    color: var(--ink-soft);
-  }
+  footer .colophon { font-family: var(--serif); font-size: 1.125rem; color: var(--ink-soft); }
 
-  button:focus-visible,
-  a:focus-visible,
-  input:focus-visible {
+  button:focus-visible, a:focus-visible, input:focus-visible {
     outline: 2px solid var(--violet-light);
     outline-offset: 2px;
   }
@@ -657,9 +747,9 @@
       <span class="brand-sub">Platform</span>
     </a>
     <div class="nav-links">
+      <a href="#tracks">Tracks</a>
       <a href="#curriculum">Curriculum</a>
-      <a href="#enroll">Pricing</a>
-      <a href="#enroll">Demo Day</a>
+      <a href="#demo-day">Demo Day</a>
       <a href="apply.html" class="nav-apply">Apply <span>→</span></a>
     </div>
   </div>
@@ -670,245 +760,543 @@
   <header class="hero">
     <div class="hero-inner">
       <div class="cohort-pill"><strong>Founding Cohort</strong> · 12 of 30 seats filled</div>
-      <h1>Build the AI agents<br><span class="grad">the world needs.</span></h1>
-      <p class="dek">Ten weeks. Three acts. One production agent on the Demo Day stage.<br>Built for African and diaspora engineers ready to ship.</p>
+      <h1>Build the AI agents <span class="grad">the world needs.</span><br>Or <span class="teal-grad">sell them.</span></h1>
+      <p class="dek">Ten weeks. Two tracks. One Demo Day stage. For African and diaspora operators ready to ship, sell, or commercialize the agentic shift.</p>
       <div class="cta-row">
         <a href="apply.html" class="btn-primary">Apply now <span class="arrow">→</span></a>
-        <a href="#curriculum" class="btn-secondary">See the curriculum</a>
+        <a href="#tracks" class="btn-secondary">Compare the tracks</a>
       </div>
     </div>
   </header>
 
   <div class="stats">
     <div class="stat"><span class="stat-num">10</span><span class="stat-label">Weeks</span></div>
-    <div class="stat"><span class="stat-num">30</span><span class="stat-label">Seats</span></div>
-    <div class="stat"><span class="stat-num">1</span><span class="stat-label">Live Agent Shipped</span></div>
+    <div class="stat"><span class="stat-num">30</span><span class="stat-label">Seats · 15 per track</span></div>
+    <div class="stat"><span class="stat-num">2</span><span class="stat-label">Tracks · 1 Demo Day</span></div>
     <div class="stat"><span class="stat-num">50%</span><span class="stat-label">Diaspora Scholarship</span></div>
   </div>
 
-  <!-- ACT 01 -->
-  <section class="act" id="act-01">
-    <div class="act-big-num">01</div>
-    <div class="act-marker">Act 01 · Prototype</div>
-    <h2>Prototype.</h2>
-    <p class="act-dek">Weeks 1–3. Model selection, prompt scaffolding, and your first working agent. You stop reading about agents and start classifying them.</p>
+  <!-- TRACKS INTRO -->
+  <section class="tracks-intro" id="tracks">
+    <div class="tracks-marker">Two Tracks · Same Demo Day</div>
+    <h2>Choose the path that <em style="font-style:italic;color:var(--violet-light);">fits your work.</em></h2>
+    <p class="dek">Both tracks run for ten weeks. Both end at Demo Day. The Build Track teaches you to ship a production agent. The Strategy Track teaches you to commercialize one. Pick where you already live.</p>
 
-    <div class="weeks" id="curriculum">
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">01</span></div>
-        <div class="week-body">
-          <h3 class="week-title">The Agentic Shift</h3>
-          <p class="week-sub">Classify what's actually an agent — and what just calls itself one.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>A working classifier for your own stack of AI tools</span></li>
-            <li><span>A written definition of "agent" your team will actually use</span></li>
-            <li><span>Three concrete opportunities in your current motion</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A tool classifier and your own agent definition, exportable.</span>
+    <div class="tracks-grid">
+      <article class="track-card build">
+        <div class="track-card-inner">
+          <div class="track-head">
+            <span class="track-label">● Build Track</span>
+            <span class="seats">15 seats</span>
           </div>
-          <a href="modules/module-01.html" class="btn-primary" style="margin-top: 1rem;">Open Module 01 — free preview <span class="arrow">→</span></a>
+          <h3>Build an agent <em>live.</em></h3>
+          <p class="track-dek">For engineers, PMs with CS backgrounds, founders who ship code. You leave with a production agent on a public URL, running real workflows.</p>
+          <div class="track-meta">
+            <div class="track-meta-row">
+              <span class="track-meta-label">You are</span>
+              <span class="track-meta-value">An engineer, builder, or technical founder</span>
+            </div>
+            <div class="track-meta-row">
+              <span class="track-meta-label">You leave with</span>
+              <span class="track-meta-value">A deployed agent, auth, observability, evals</span>
+            </div>
+            <div class="track-meta-row">
+              <span class="track-meta-label">Stack</span>
+              <span class="track-meta-value">Python or TS · Vercel · Postgres · an LLM API</span>
+            </div>
+            <div class="track-meta-row">
+              <span class="track-meta-label">Demo Day</span>
+              <span class="track-meta-value">A live agent demoed on stage</span>
+            </div>
+          </div>
+          <button class="track-see" data-track="build">See the Build curriculum →</button>
         </div>
       </article>
 
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">02</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Model &amp; prompt scaffolding</h3>
-          <p class="week-sub">Pick a model. Build the prompt. Know why it's wrong before it fails on you.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>A model-selection worksheet you'll reuse for every new agent</span></li>
-            <li><span>Structured prompt templates with evals attached</span></li>
-            <li><span>Your first single-shot agent running locally</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A single-shot agent that answers one question reliably.</span>
+      <article class="track-card strategy">
+        <div class="track-card-inner">
+          <div class="track-head">
+            <span class="track-label">● Strategy Track</span>
+            <span class="seats">15 seats</span>
           </div>
-        </div>
-      </article>
-
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">03</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Tools, functions, and the first loop</h3>
-          <p class="week-sub">Give your agent a hand. Then give it a plan.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>Function calling wired to three real tools (yours, not toys)</span></li>
-            <li><span>A reasoning loop with retry, backoff, and an exit condition</span></li>
-            <li><span>A written post-mortem on your first loop that wouldn't stop</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A multi-step agent that completes a task you actually have.</span>
+          <h3>Sell the agent <em>economy.</em></h3>
+          <p class="track-dek">For operators, sellers, revenue leaders, and non-technical founders. You leave with the pricing, positioning, and commercialization plan for an agentic product.</p>
+          <div class="track-meta">
+            <div class="track-meta-row">
+              <span class="track-meta-label">You are</span>
+              <span class="track-meta-value">A seller, operator, or non-technical founder</span>
+            </div>
+            <div class="track-meta-row">
+              <span class="track-meta-label">You leave with</span>
+              <span class="track-meta-value">A pricing proposal, pilot plan, GTM narrative</span>
+            </div>
+            <div class="track-meta-row">
+              <span class="track-meta-label">Required</span>
+              <span class="track-meta-value">A real offer or deal you'll work on</span>
+            </div>
+            <div class="track-meta-row">
+              <span class="track-meta-label">Demo Day</span>
+              <span class="track-meta-value">A commercialization pitch to real buyers</span>
+            </div>
           </div>
+          <button class="track-see" data-track="strategy">See the Strategy curriculum →</button>
         </div>
       </article>
     </div>
   </section>
 
-  <!-- ACT 02 -->
-  <section class="act" id="act-02">
-    <div class="act-big-num">02</div>
-    <div class="act-marker">Act 02 · Build</div>
-    <h2>Build.</h2>
-    <p class="act-dek">Weeks 4–6. Multi-tool agents, RAG pipelines, and production deploys. You stop prototyping and start shipping.</p>
+  <!-- CURRICULUM WITH TOGGLE -->
+  <section class="curriculum-section" id="curriculum">
+    <div class="curriculum-marker">The Curriculum · 10 weeks · 3 acts</div>
+    <h2>Pick your track.<br>Follow the arc.</h2>
+    <p class="dek">Both tracks share Week 01 (free preview). From Week 02, they diverge — same rhythm, different craft. Every week has what you'll come out with and a deliverable you'll actually use.</p>
 
-    <div class="weeks">
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">04</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Multi-tool orchestration</h3>
-          <p class="week-sub">Agents that call other agents. Agents that know when not to.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>An orchestrator pattern you can defend in a review</span></li>
-            <li><span>A planner-worker split, with eval on each</span></li>
-            <li><span>A real cost budget per task, enforced</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A multi-tool agent running end-to-end on a real workflow.</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">05</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Deploy to production</h3>
-          <p class="week-sub">From localhost to a URL your mom can open.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>A deployed agent on Vercel with a public URL</span></li>
-            <li><span>Postgres schema with migrations under version control</span></li>
-            <li><span>Observability wired — logs, errors, token spend</span></li>
-            <li><span>Auth gating with role-based access</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">Your agent live on a public URL, surviving a load test.</span>
-          </div>
-          <div class="launch-block">
-            <div class="launch-block-head">
-              <span class="lb-label">⚙ Launch Block</span>
-              <span class="lb-tag">Fellowship only</span>
-            </div>
-            <p class="launch-block-text"><strong>Pricing your agent:</strong> Three pricing frameworks for AI products, token-cost math, and a worksheet to price your own.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">06</span></div>
-        <div class="week-body">
-          <h3 class="week-title">RAG pipelines that don't lie</h3>
-          <p class="week-sub">Retrieval, chunking, re-ranking, evals. Making your agent cite its sources.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>A vector store wired to your own documents</span></li>
-            <li><span>A chunking strategy benchmarked against three others</span></li>
-            <li><span>Groundedness evals catching hallucinations before shipping</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A RAG-enabled agent answering from your docs, with citations.</span>
-          </div>
-        </div>
-      </article>
+    <div class="toggle" role="tablist">
+      <button class="build-btn active" data-tab="build" role="tab"><span class="dot"></span>Build Track</button>
+      <button class="strategy-btn" data-tab="strategy" role="tab"><span class="dot"></span>Strategy Track</button>
     </div>
-  </section>
 
-  <!-- ACT 03 -->
-  <section class="act" id="act-03">
-    <div class="act-big-num">03</div>
-    <div class="act-marker">Act 03 · Ship</div>
-    <h2>Ship.</h2>
-    <p class="act-dek">Weeks 7–10. Evals, security, your Demo Day pitch. You stop shipping and start selling.</p>
+    <!-- BUILD TRACK -->
+    <div class="track-content track-build active" data-track="build">
 
-    <div class="weeks">
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">07</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Evals that catch real regressions</h3>
-          <p class="week-sub">You can't ship what you can't test. Build the test harness.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>Golden-set evals wired to your CI</span></li>
-            <li><span>LLM-as-judge evals for subjective outputs</span></li>
-            <li><span>A dashboard tracking quality, cost, and latency on every commit</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">An eval harness that blocks merges on regressions.</span>
-          </div>
-        </div>
-      </article>
+      <section class="act">
+        <div class="act-big-num">01</div>
+        <div class="act-marker">Act 01 · Prototype</div>
+        <h3 class="act-title">Prototype.</h3>
+        <p class="act-dek">Weeks 1–3. Model selection, prompt scaffolding, and your first working agent. You stop reading about agents and start shipping them.</p>
 
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">08</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Security, trust, and the sales conversation</h3>
-          <p class="week-sub">The questions enterprise buyers will ask — and the answers you'll have ready.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>Prompt injection defenses with red-team logs</span></li>
-            <li><span>A data-residency and PII story for your agent</span></li>
-            <li><span>A written security brief you can send a procurement team</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A security one-pager ready for a buyer's security team.</span>
-          </div>
-          <div class="launch-block">
-            <div class="launch-block-head">
-              <span class="lb-label">⚙ Launch Block</span>
-              <span class="lb-tag">Fellowship only</span>
+        <div class="weeks">
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">01</span></div>
+            <div class="week-body">
+              <div class="shared-banner">● Shared with Strategy · Free Preview</div>
+              <h4 class="week-title">The Agentic Shift</h4>
+              <p class="week-sub">Classify what's actually an agent — and what just calls itself one.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A working classifier for your own stack of AI tools</span></li>
+                <li><span>A written definition of "agent" your team will use</span></li>
+                <li><span>Three concrete opportunities in your current motion</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A tool classifier and your own agent definition, exportable.</span>
+              </div>
+              <a href="modules/module-01.html" class="btn-primary" style="margin-top: 1rem;">Open Module 01 — free preview <span class="arrow">→</span></a>
             </div>
-            <p class="launch-block-text"><strong>Agent-native selling:</strong> How discovery, demo, and proof change when the product is an agent — with real call recordings.</p>
-          </div>
-        </div>
-      </article>
+          </article>
 
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">09</span></div>
-        <div class="week-body">
-          <h3 class="week-title">The pitch, the narrative, the proof</h3>
-          <p class="week-sub">Your agent runs. Now tell someone who cares.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>A 90-second pitch rehearsed on camera</span></li>
-            <li><span>A deck for a 15-minute Demo Day slot</span></li>
-            <li><span>A written case study with real metrics</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">A Demo Day pitch deck and a 90-second cold open.</span>
-          </div>
-        </div>
-      </article>
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">02</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Model &amp; prompt scaffolding</h4>
+              <p class="week-sub">Pick a model. Build the prompt. Know why it's wrong before it fails on you.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A model-selection worksheet you'll reuse for every new agent</span></li>
+                <li><span>Structured prompt templates with evals attached</span></li>
+                <li><span>Your first single-shot agent running locally</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A single-shot agent that answers one question reliably.</span>
+              </div>
+            </div>
+          </article>
 
-      <article class="week-card">
-        <div class="week-header"><span>Week</span><span class="num">10</span></div>
-        <div class="week-body">
-          <h3 class="week-title">Demo Day</h3>
-          <p class="week-sub">Live. On stage. In front of operators, investors, and customers.</p>
-          <div class="outcomes-label">What you'll come out with</div>
-          <ul class="outcomes">
-            <li><span>A production agent demoed on stage</span></li>
-            <li><span>Three warm intros to people in the room</span></li>
-            <li><span>A 90-day commercialization plan, co-authored with a mentor</span></li>
-          </ul>
-          <div class="deliverable">
-            <span class="deliverable-label">◆ Deliverable</span>
-            <span class="deliverable-text">Your agent in the hands of a first user, recorded for your reel.</span>
-          </div>
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">03</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Tools, functions, and the first loop</h4>
+              <p class="week-sub">Give your agent a hand. Then give it a plan.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>Function calling wired to three real tools (yours, not toys)</span></li>
+                <li><span>A reasoning loop with retry, backoff, and an exit condition</span></li>
+                <li><span>A written post-mortem on your first loop that wouldn't stop</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A multi-step agent that completes a task you actually have.</span>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
+      </section>
+
+      <section class="act">
+        <div class="act-big-num">02</div>
+        <div class="act-marker">Act 02 · Build</div>
+        <h3 class="act-title">Build.</h3>
+        <p class="act-dek">Weeks 4–6. Multi-tool agents, RAG pipelines, and production deploys. You stop prototyping and start shipping.</p>
+
+        <div class="weeks">
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">04</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Multi-tool orchestration</h4>
+              <p class="week-sub">Agents that call other agents. Agents that know when not to.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>An orchestrator pattern you can defend in a review</span></li>
+                <li><span>A planner-worker split, with eval on each</span></li>
+                <li><span>A real cost budget per task, enforced</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A multi-tool agent running end-to-end on a real workflow.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">05</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Deploy to production</h4>
+              <p class="week-sub">From localhost to a URL your mom can open.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A deployed agent on Vercel with a public URL</span></li>
+                <li><span>Postgres schema with migrations under version control</span></li>
+                <li><span>Observability wired — logs, errors, token spend</span></li>
+                <li><span>Auth gating with role-based access</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">Your agent live on a public URL, surviving a load test.</span>
+              </div>
+              <div class="launch-block">
+                <div class="launch-block-head">
+                  <span class="lb-label">⚙ Launch Block</span>
+                  <span class="lb-tag">Fellowship only</span>
+                </div>
+                <p class="launch-block-text"><strong>Pricing your agent:</strong> Three pricing frameworks for AI products, token-cost math, and a worksheet to price your own.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">06</span></div>
+            <div class="week-body">
+              <h4 class="week-title">RAG pipelines that don't lie</h4>
+              <p class="week-sub">Retrieval, chunking, re-ranking, evals. Making your agent cite its sources.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A vector store wired to your own documents</span></li>
+                <li><span>A chunking strategy benchmarked against three others</span></li>
+                <li><span>Groundedness evals catching hallucinations before shipping</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A RAG-enabled agent answering from your docs, with citations.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="act">
+        <div class="act-big-num">03</div>
+        <div class="act-marker">Act 03 · Ship</div>
+        <h3 class="act-title">Ship.</h3>
+        <p class="act-dek">Weeks 7–10. Evals, security, your Demo Day pitch. You stop shipping and start selling.</p>
+
+        <div class="weeks">
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">07</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Evals that catch real regressions</h4>
+              <p class="week-sub">You can't ship what you can't test. Build the test harness.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>Golden-set evals wired to your CI</span></li>
+                <li><span>LLM-as-judge evals for subjective outputs</span></li>
+                <li><span>A dashboard tracking quality, cost, and latency on every commit</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">An eval harness that blocks merges on regressions.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">08</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Security, trust, and the sales conversation</h4>
+              <p class="week-sub">The questions enterprise buyers will ask — and the answers you'll have ready.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>Prompt injection defenses with red-team logs</span></li>
+                <li><span>A data-residency and PII story for your agent</span></li>
+                <li><span>A written security brief you can send a procurement team</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A security one-pager ready for a buyer's security team.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">09</span></div>
+            <div class="week-body">
+              <h4 class="week-title">The pitch, the narrative, the proof</h4>
+              <p class="week-sub">Your agent runs. Now tell someone who cares.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A 90-second pitch rehearsed on camera</span></li>
+                <li><span>A deck for a 15-minute Demo Day slot</span></li>
+                <li><span>A written case study with real metrics</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A Demo Day pitch deck and a 90-second cold open.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">10</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Demo Day</h4>
+              <p class="week-sub">Live. On stage. In front of operators, investors, and customers.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A production agent demoed on stage</span></li>
+                <li><span>Three warm intros to people in the room</span></li>
+                <li><span>A 90-day commercialization plan, co-authored with a mentor</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">Your agent in the hands of a first user, recorded for your reel.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- STRATEGY TRACK -->
+    <div class="track-content track-strategy" data-track="strategy">
+
+      <section class="act">
+        <div class="act-big-num">01</div>
+        <div class="act-marker">Act 01 · Understand</div>
+        <h3 class="act-title">Understand.</h3>
+        <p class="act-dek">Weeks 1–3. The agentic landscape, where real revenue is, and the buy/build/blend decision. You stop guessing and start deciding.</p>
+
+        <div class="weeks">
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">01</span></div>
+            <div class="week-body">
+              <div class="shared-banner">● Shared with Build · Free Preview</div>
+              <h4 class="week-title">The Agentic Shift</h4>
+              <p class="week-sub">Classify what's actually an agent — and what just calls itself one.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A working classifier for your own stack of AI tools</span></li>
+                <li><span>A written definition of "agent" your team will use</span></li>
+                <li><span>Three concrete opportunities in your current motion</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A tool classifier and your own agent definition, exportable.</span>
+              </div>
+              <a href="modules/module-01.html" class="btn-primary" style="margin-top: 1rem; background: var(--teal); color: var(--bg);">Open Module 01 — free preview <span class="arrow">→</span></a>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">02</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Mapping agent opportunities</h4>
+              <p class="week-sub">Where agents create the most revenue leverage inside your motion.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A map of every agent-ready workflow in your org or offer</span></li>
+                <li><span>A prioritization score per opportunity (impact vs effort)</span></li>
+                <li><span>Three executive sponsors identified for your top pick</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">An agent opportunity map ready for your next QBR.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">03</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Buy, build, or blend</h4>
+              <p class="week-sub">A decision framework for agent capability sourcing — and when each is wrong.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A decision framework for buy / build / blend / partner</span></li>
+                <li><span>A vendor shortlist with scorecards for the top three</span></li>
+                <li><span>A build-threshold calculator (when to build vs when to buy)</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A buy/build/blend recommendation for one real opportunity.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="act">
+        <div class="act-big-num">02</div>
+        <div class="act-marker">Act 02 · Position</div>
+        <h3 class="act-title">Position.</h3>
+        <p class="act-dek">Weeks 4–6. Selling, pricing, and partnering for agentic products. You stop pitching features and start selling outcomes.</p>
+
+        <div class="weeks">
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">04</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Agent-native selling</h4>
+              <p class="week-sub">How discovery, demo, and proof change when the product is an agent.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A discovery script tuned for agentic products</span></li>
+                <li><span>A demo that handles the "but can it..." questions</span></li>
+                <li><span>Three competitive playbooks against legacy SaaS incumbents</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A recorded demo you can send to real prospects.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">05</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Pricing agentic products</h4>
+              <p class="week-sub">Outcome, seat, consumption, or hybrid — how to choose, and how to defend it.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>Three pricing frameworks for AI products</span></li>
+                <li><span>A token-cost model for your own offer</span></li>
+                <li><span>A pricing worksheet you can defend in a QBR</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A pricing proposal you can defend against a buyer's math.</span>
+              </div>
+              <div class="launch-block">
+                <div class="launch-block-head">
+                  <span class="lb-label">⚙ Launch Block</span>
+                  <span class="lb-tag">Fellowship only</span>
+                </div>
+                <p class="launch-block-text"><strong>Early customer co-selling:</strong> How to find and close your first paid pilot — the outreach cadence, the pilot contract, the exit ramp.</p>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">06</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Partnering &amp; the agent ecosystem</h4>
+              <p class="week-sub">Hyperscalers, SIs, ISVs, and foundation model providers — where the lines are drawn.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>Where AWS, Azure, GCP draw their agent lines today</span></li>
+                <li><span>Which SIs and ISVs matter in the agentic motion</span></li>
+                <li><span>A partnership heatmap tuned to your offer</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A partner outreach list with first-touch messaging.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="act">
+        <div class="act-big-num">03</div>
+        <div class="act-marker">Act 03 · Commercialize</div>
+        <h3 class="act-title">Commercialize.</h3>
+        <p class="act-dek">Weeks 7–10. Enterprise readiness, pilots, metrics, and your Demo Day pitch. You stop selling and start commercializing.</p>
+
+        <div class="weeks">
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">07</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Enterprise readiness</h4>
+              <p class="week-sub">The questions enterprise buyers will ask — and the answers you'll have ready.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A security, data-residency, and PII story for your agent</span></li>
+                <li><span>A procurement-ready one-pager</span></li>
+                <li><span>Objection handling for the top ten enterprise concerns</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A security brief ready for a buyer's security team.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">08</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Pilot to production</h4>
+              <p class="week-sub">Designing pilots that convert — and the common traps that kill them.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A pilot design that converts (success criteria, timeline, pricing)</span></li>
+                <li><span>The common traps that kill agent pilots before year two</span></li>
+                <li><span>A success-metric framework co-authored with the buyer</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A pilot proposal with conversion milestones.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">09</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Metrics that matter</h4>
+              <p class="week-sub">Measuring agent-based products beyond seat-based SaaS.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>Outcome-based KPIs for agentic products</span></li>
+                <li><span>A customer-health model built for autonomous products</span></li>
+                <li><span>A dashboard template for your first 90 days in-market</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">A metrics framework for your first 90 days in-market.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="week-card">
+            <div class="week-header"><span>Week</span><span class="num">10</span></div>
+            <div class="week-body">
+              <h4 class="week-title">Demo Day</h4>
+              <p class="week-sub">Your commercialization pitch. In front of customers, investors, and partners.</p>
+              <div class="outcomes-label">What you'll come out with</div>
+              <ul class="outcomes">
+                <li><span>A Demo Day pitch to customers, investors, and partners</span></li>
+                <li><span>Three warm intros from the room</span></li>
+                <li><span>A 90-day commercialization plan, co-authored with a mentor</span></li>
+              </ul>
+              <div class="deliverable">
+                <span class="deliverable-label">◆ Deliverable</span>
+                <span class="deliverable-text">Your commercialization plan, in front of a real buyer.</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
     </div>
   </section>
 
@@ -916,8 +1304,8 @@
   <section class="enroll" id="enroll">
     <div class="enroll-pill">Ready?</div>
     <h2>Enroll in the Founding Cohort.</h2>
-    <p>Review takes 48 hours. African and diaspora applicants automatically get 50% off. The application takes about 8 minutes.</p>
-    <div style="display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap;position:relative;">
+    <p>You'll pick your track on the application form. Review takes 48 hours. African and diaspora applicants automatically get 50% off.</p>
+    <div class="enroll-cta-row">
       <a href="apply.html" class="btn-primary">Start application <span class="arrow">→</span></a>
       <a href="#curriculum" class="btn-secondary">Re-read the curriculum</a>
     </div>
@@ -926,10 +1314,10 @@
 
   <!-- ABOUT -->
   <section class="about" id="about">
-    <div class="act-marker">About</div>
-    <h2>Built by an <em style="font-style:italic;color:var(--violet-light);">operator,</em> for builders.</h2>
+    <div class="about-marker">About</div>
+    <h2>Built by an <em>operator,</em> for both sides of the house.</h2>
     <p>The Fellowship is the first program under <strong>AAFLMS</strong> — built by <strong>Taiwo</strong>, Regional Director of Account Management at Oracle NetSuite, with a fifteen-year background in enterprise data platforms (Netezza, IBM, Vertica, Ocient).</p>
-    <p>This program is her effort to put what actually works into the hands of engineers who sell, ship, and decide — without the hand-waving. For partnerships or press, reach out at <a href="mailto:tutoaster@gmail.com">tutoaster@gmail.com</a>.</p>
+    <p>She started this because the people who ship agents and the people who sell them are usually in different rooms. The Fellowship puts them on the same stage at Demo Day. For partnerships or press, reach out at <a href="mailto:aiagentfellowship@ariroinc.com">aiagentfellowship@ariroinc.com</a>.</p>
   </section>
 
 </main>
@@ -941,12 +1329,29 @@
 
 <script>
   (function() {
-    var form = document.getElementById('waitlistForm');
-    var note = document.getElementById('waitlistNote');
-    if (!form) return;
-    form.addEventListener('submit', function() {
-      note.textContent = 'Sending — thank you.';
-      note.classList.add('sent');
+    // Track toggle
+    var buttons = document.querySelectorAll('.toggle button');
+    var contents = document.querySelectorAll('.track-content');
+    function activate(trackName) {
+      buttons.forEach(function(b) {
+        if (b.dataset.tab === trackName) b.classList.add('active');
+        else b.classList.remove('active');
+      });
+      contents.forEach(function(c) {
+        if (c.dataset.track === trackName) c.classList.add('active');
+        else c.classList.remove('active');
+      });
+    }
+    buttons.forEach(function(b) {
+      b.addEventListener('click', function() { activate(b.dataset.tab); });
+    });
+
+    // Track card "See curriculum" buttons
+    document.querySelectorAll('.track-see').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        activate(btn.dataset.track);
+        document.getElementById('curriculum').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
     });
   })();
 </script>
