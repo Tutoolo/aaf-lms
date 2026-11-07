@@ -1313,19 +1313,55 @@
   </section>
 
   <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="about-marker">About</div>
-    <h2>Built by <em>AriroInc.</em></h2>
-    <p>The Fellowship is a program of <strong>AriroInc</strong> — a creative tech studio for Africa and the diaspora. Our team ships enterprise software, launches consumer products, and builds brands across three continents.</p>
-    <p>We built this because the people who ship agents and the people who sell them are usually in different rooms. We put them on the same Demo Day stage.</p>
-    <p style="margin-top: 1.5rem;">More about us at <a href="https://ariroinc.com" target="_blank" rel="noopener">ariroinc.com</a>. For partnerships or press: <a href="mailto:aiagentfellowship@ariroinc.com">aiagentfellowship@ariroinc.com</a>.</p>
+  <section class="about" id="about" style="max-width: 1200px; display: grid; grid-template-columns: minmax(0, 44rem) auto; gap: 3rem; align-items: start;">
+    <div>
+      <div class="about-marker">About</div>
+      <h2>Built by <em>ariroinc.</em></h2>
+      <p>The Fellowship is a program of <strong>ariroinc</strong> — a creative tech studio for Africa and the diaspora. Our team ships enterprise software, launches consumer products, and builds brands across three continents.</p>
+      <p>We built this because the people who ship agents and the people who sell them are usually in different rooms. We put them on the same Demo Day stage.</p>
+      <p style="margin-top: 1.5rem;">More about us at <a href="https://ariroinc.com" target="_blank" rel="noopener">ariroinc.com</a>. For partnerships or press: <a href="mailto:aiagentfellowship@ariroinc.com">aiagentfellowship@ariroinc.com</a>.</p>
+    </div>
+    <a href="https://ariroinc.com" target="_blank" rel="noopener" class="ariro-mark" aria-label="ariroinc">
+      <img src="assets/ariro-logo.png" alt="ariroinc" />
+    </a>
   </section>
+
+  <style>
+    .ariro-mark {
+      display: inline-block;
+      padding: 1.5rem 1.75rem;
+      border: 1px solid var(--rule);
+      border-radius: 16px;
+      background: linear-gradient(180deg, var(--bg-raised), var(--bg-purple));
+      transition: all 0.2s ease;
+      max-width: 220px;
+    }
+    .ariro-mark:hover {
+      border-color: var(--teal);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(34, 211, 198, 0.15);
+    }
+    .ariro-mark img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    @media (max-width: 760px) {
+      .about {
+        grid-template-columns: 1fr !important;
+      }
+      .ariro-mark {
+        justify-self: start;
+        max-width: 180px;
+      }
+    }
+  </style>
 
 </main>
 
 <footer>
   <span class="colophon">The Fellowship <span style="color: var(--violet-light); font-family: var(--mono); font-size: 0.6875rem; letter-spacing: 0.22em; text-transform: uppercase; margin-left: 0.5rem;">AAFLMS</span></span>
-  <span>© 2026 · <a href="https://ariroinc.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">AriroInc</a> · All rights reserved</span>
+  <span>© 2026 · <a href="https://ariroinc.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: none;">ariroinc</a> · All rights reserved</span>
 </footer>
 
 <script>
